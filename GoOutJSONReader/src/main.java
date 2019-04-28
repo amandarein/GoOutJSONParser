@@ -1,14 +1,23 @@
+import java.awt.List;
+import java.awt.Window.Type;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import org.json.JSONObject;
 
 
 public class main {
@@ -17,54 +26,36 @@ public class main {
 		
 		FileReader jsonFile = new FileReader("data/events.json");
 		JsonParser jsonParser = new JsonParser();
-		JsonArray scheduleJsonArray = (JsonArray) jsonParser.parse(jsonFile).getAsJsonObject().get("schedule");
-		ArrayList<Event> events = new ArrayList();
+		String jsonString = new String(Files.readAllBytes(Paths.get("data/events.json")));
+		jsonString = jsonString.replaceAll("[\r\n]+", "");
+		jsonString = jsonString.replaceAll("      ", "");
 		
-		for(int i = 0; i < scheduleJsonArray.size(); i++) {
-			JsonObject eventsJsonObject = scheduleJsonArray.get(i).getAsJsonObject();
-			
-			JsonElement eventIDJsonElement = eventsJsonObject.get("eventId");
-			String eventID = eventIDJsonElement.getAsString();
-			
-			JsonElement dateJsonElement = eventsJsonObject.get("start");
-			String date = dateJsonElement.getAsString();
-			
-			JsonElement venueIDJsonElement = eventsJsonObject.get("venueId");
-			String venueID = venueIDJsonElement.getAsString();
-			
-			JsonObject venueJsonObject = eventsJsonObject.get("venueLocality").getAsJsonObject();
-			JsonElement venueJsonElement = venueJsonObject.get("name");
-			String venue = venueJsonElement.getAsString();
-			
-			Event e = new Event(eventID, date, venueID);
-			events.add(e);
-		}
-		/*
-		JsonObject venuesObject = (JsonObject) jsonParser.parse(jsonFile).getAsJsonObject().get("venues");
-		//get to "venues" part and match the venueId with the "name" of the venue
-		for( ) {
-			JsonObject venues = venuesObject.getAsJsonObject();
-			String venueName = venues.getAsString();
-			System.out.println(venueName);
-			for(int i = 0; i < events.size(); i++) {
-				if( (events.get(i)).getVenue() == venueName)
-					(events.get(i)).setVenue(venueName);
+		String scheduleString = jsonString.substring(jsonString.indexOf("\"schedule\": [")+13, jsonString.indexOf("\"venues\":"));
+		String venueString = jsonString.substring(jsonString.indexOf("\"venues\":"), jsonString.indexOf("\"events\":"));
+		String eventString = jsonString.substring(jsonString.indexOf("\"events\":"));
+		System.out.println(scheduleString);
+		System.out.println(venueString);
+		System.out.println(eventString);
+		
+		Gson gson = new GsonBuilder()
+		        .setLenient()
+		        .create();
+		
+		ArrayList<String> events = new ArrayList<String>();
+		int indEnd = 0;
+		for(int i = 0; i < 1000; i++) {
+			if( (scheduleString.indexOf("},{")+1) > 1) {
+				indEnd = scheduleString.indexOf("},{")+1;
+				events.add(scheduleString.substring(1, indEnd));
+				scheduleString = scheduleString.substring(indEnd);
+				System.out.println(events.get(i));
 			}
 		}
-	
 		
-		JsonObject eventsJsonObject = (JsonObject) jsonParser.parse(jsonFile).getAsJsonObject().get("events");
-		//get to "events" part and match the eventId with "originalName"
-		for( ) {
-			JsonElement eventNameJsonElement = eventsJsonObject.get("originalName");
-			String eventName = eventNameJsonElement.getAsString();
-			
-			(events.get(i)).setName(eventName);
-		}
-		*/
+		//look at https://github.com/google/gson/blob/master/UserGuide.md
 		for(int j = 0; j < events.size(); j++) {
-			System.out.println("Event:  " + events.get(j));
-		} 
-		
+			Event e = gson.fromJson(events.get(j), Event.class);
+			System.out.println(e.toString());
+		}
 		} 
 }
