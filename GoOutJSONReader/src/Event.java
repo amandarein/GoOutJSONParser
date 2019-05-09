@@ -3,74 +3,71 @@ import java.util.ArrayList;
 
 public class Event {
 
-	private int id;
-	private String announced;
-	private boolean cancelled;
-	private String currency;
-	private String endIS;
-	private int eventID;
-	private int followerCountDeprecated;
-	private int followersCount;
-	private int followerCount;
-	private boolean hourIgnoreDeprecated;
-	private boolean hourIgnore;
-	private boolean hourIgnored;
-	private boolean permanent;
-	private String pricing;
-	private double relativeFollowers;
-	private double relativeFollowersInWeek;
-	private int[] sourceURLs;
-	private String start;
-	private String startIS;
-	private String state;
-	private int[] tags;
-	private String timezone;
-	private String venueID;
-	private int[] performerIDs;
-	private Object venueLocality;
-	private String isLongTerm;
-	private String uploadedOnIS;
-	private String url;
-	private int[] followersImages;
+	int id;
+	String name;
+	String url;
+	String state;
+	ArrayList<Object> categories;
+	String text;
+	ArrayList<Object> images;
+	ArrayList<Object> videos;
+	int mainImageID;
+	String mainImagesrc;
+	String keywords;
+	int score;
+	ArrayList<Object> performerIDs;
+	int innerEventsCount;
+	String nameNote;
+	ArrayList<Object> category;
+	ArrayList<Object> contacts;
+	int priority;
+	int rating;
+	String director;
+	String addedPerformers;
+	String length;
+	String release;
+	String csfd;
+	String imdb;
+	String filmweb;
+	ArrayList<String> tags;
+	String note;
+	ArrayList<Object> innerScheduleIDs;
 	
-	public String getvenueID() {
-		return venueID;
+	public Event() {
+		super();
+		this.id = 0;
+		this.name = "";
+		this.url = "";
+		this.state = "";
+		this.categories = null;
+		this.text = "";
+		this.images = null;
+		this.videos = null;
+		this.mainImageID = 0;
+		this.mainImagesrc = "";
+		this.keywords = "";
+		this.score = 0;
+		this.performerIDs = null;
+		this.innerEventsCount = 0;
+		this.nameNote = "";
+		this.category = null;
+		this.contacts = null;
+		this.priority = 0;
+		this.rating = 0;
+		this.director = "";
+		this.addedPerformers = "";
+		this.length = "";
+		this.release = "";
+		this.csfd = "";
+		this.imdb = "";
+		this.filmweb = "";
+		this.tags = null;
+		this.note = "";
+		this.innerScheduleIDs = null;
 	}
-	
-	public Event(String id, String an, boolean ca, String cu, String en, int ev, int foDe, int fos, int fo, boolean hoDe, boolean ho, boolean hod, boolean pe, String pr, double re, double reWk, int[] so, String st, String stIS, String sta, int[] ta, String ti, String ve, int[] per, String venL, String isL, String up, String u, int[] foI) {
-		id = id;
-		announced = an; 
-		cancelled = ca;
-		currency = cu;
-		endIS = en;
-		eventID = ev;
-		followerCountDeprecated = foDe;
-		followersCount = fos;
-		followerCount = fo;
-		hourIgnoreDeprecated = hoDe;
-		hourIgnore = ho;
-		hourIgnored = hod;
-		permanent = pe;
-		pricing = pr;
-		relativeFollowers = re;
-		relativeFollowersInWeek = reWk;
-		sourceURLs = so;
-		start = st;
-		startIS = stIS;
-		state = sta;
-		tags = ta;
-		timezone = ti;
-		venueID = ve;
-		performerIDs = per;
-		venueLocality = venL;
-		isLongTerm = isL;
-		uploadedOnIS = up;
-		url = u;
-		followersImages = foI;
-	}
-	
+
 	public String toString() {
-		
-		return id + announced + cancelled + currency + endIS + eventID + followerCountDeprecated + followersCount + followerCount + hourIgnoreDeprecated + hourIgnore + hourIgnored + permanent + pricing + relativeFollowers + relativeFollowersInWeek + sourceURLs + start + startIS + state + tags + timezone + venueID + performerIDs + venueLocality + isLongTerm + uploadedOnIS + url + followersImages;
-	} 
+		return id + name + url + state + categories.toString() + text + images.toString() + videos.toString() + mainImageID + mainImagesrc + keywords + score + performerIDs.toString() + innerEventsCount + nameNote + category.toString() + contacts.toString() + priority + rating + director + addedPerformers + length + release + csfd + imdb + filmweb + tags + note + innerScheduleIDs;
+	}
+	
 }

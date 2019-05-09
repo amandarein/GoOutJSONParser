@@ -33,27 +33,8 @@ public class main {
 		jsonString = jsonString.replaceAll("      ", "");
 		jsonString = jsonString.replaceAll("  ", "");
 		
-		String scheduleString = jsonString.substring(jsonString.indexOf("\"schedule\": [")+13, jsonString.indexOf("\"venues\":"));
-		String venueString = jsonString.substring(jsonString.indexOf("\"venues\":"), jsonString.indexOf("\"events\":"));
-		String eventString = jsonString.substring(jsonString.indexOf("\"events\":"));
-		
-		Gson gson = new GsonBuilder()
-		        .setLenient()
-		        .create();
-		
-		/*//how we would get each schedule element individually as a string
-		ArrayList<String> events = new ArrayList<String>();
-		int indEnd = 0;
-		for(int i = 0; i < 1000; i++) {
-			if( (scheduleString.indexOf("},{")+1) > 1) {
-				indEnd = scheduleString.indexOf("},{")+1;
-				events.add(scheduleString.substring(1, indEnd));
-				scheduleString = scheduleString.substring(indEnd);
-				System.out.println(events.get(i));
-			}
-		} */
-		
-		java.lang.reflect.Type itemListType = new TypeToken<ArrayList<Event>>(){}.getType();
-		ArrayList<Event> itemList = gson.fromJson(scheduleString, itemListType);
+		Gson gson = new Gson();
+		Response r = gson.fromJson(jsonFile, Response.class);
+		System.out.println(r.toString());
 		} 
 }
