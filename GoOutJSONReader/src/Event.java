@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 
 public class Event {
@@ -7,7 +6,7 @@ public class Event {
 	String name;
 	String url;
 	String state;
-	ArrayList<Object> categories;
+	Object categories;
 	String text;
 	ArrayList<Object> images;
 	ArrayList<Object> videos;
@@ -18,7 +17,7 @@ public class Event {
 	ArrayList<Object> performerIDs;
 	int innerEventsCount;
 	String nameNote;
-	ArrayList<Object> category;
+	Object category;
 	ArrayList<Object> contacts;
 	int priority;
 	int rating;
@@ -41,17 +40,17 @@ public class Event {
 		this.state = "";
 		this.categories = null;
 		this.text = "";
-		this.images = null;
-		this.videos = null;
+		this.images = new ArrayList<>();
+		this.videos = new ArrayList<>();
 		this.mainImageID = 0;
 		this.mainImagesrc = "";
 		this.keywords = "";
 		this.score = 0;
-		this.performerIDs = null;
+		this.performerIDs = new ArrayList<>();
 		this.innerEventsCount = 0;
 		this.nameNote = "";
-		this.category = null;
-		this.contacts = null;
+		this.category = new String("");
+		this.contacts = new ArrayList<>();
 		this.priority = 0;
 		this.rating = 0;
 		this.director = "";
@@ -61,13 +60,13 @@ public class Event {
 		this.csfd = "";
 		this.imdb = "";
 		this.filmweb = "";
-		this.tags = null;
+		this.tags = new ArrayList<>();
 		this.note = "";
-		this.innerScheduleIDs = null;
+		this.innerScheduleIDs = new ArrayList<>();
 	}
-
+		
 	public String toString() {
-		return id + name + url + state + categories.toString() + text + images.toString() + videos.toString() + mainImageID + mainImagesrc + keywords + score + performerIDs.toString() + innerEventsCount + nameNote + category.toString() + contacts.toString() + priority + rating + director + addedPerformers + length + release + csfd + imdb + filmweb + tags + note + innerScheduleIDs;
+		return "id: " + id + "\n name: " + name + "\n url:  " + url + "\n state: " + state + "\n categories: " + categories.toString() + "\n text: " + text + "\n images: " + images.toString() + "\n videos: " + videos.toString() + "\n mainImageID: " + mainImageID + "\n mainImagesrc: " + mainImagesrc + "\n keywords: " + keywords + "\n score: " + score + "\n performerIDs: " + performerIDs.toString() + "\n innerEventsCount: " + innerEventsCount + "\n nameNote: " + nameNote + "\n category: " + category.toString() + "\n contacts: " + contacts.toString() + "\n priority: " + priority + "\n rating: " + rating + "\n director: " + director + "\n addedPerformers: " + addedPerformers + "\n length: " + length + "\n release: " + release + "\n csfd: " + csfd + "\n imdb: " + imdb + "\n filmweb: " + filmweb.toString() + "\n tags: " + tags + "\n note: " + note + "\n innerScheduleIDs: " + innerScheduleIDs.toString() + "\n";
 	}
 	
 }

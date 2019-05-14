@@ -16,7 +16,7 @@ public class Venue {
 	int eventCount;
 	String state;
 	Object locality;
-	ArrayList<Object> categories;
+	Object categories;
 	Object mainImage;
 	ArrayList<Object> images;
 	ArrayList<Object> videos;
@@ -36,16 +36,17 @@ public class Venue {
 		this.panorama = false;
 		this.eventCount = 0;
 		this.state = "";
-		this.locality = null;
-		this.categories = null;
-		this.mainImage = null;
-		this.images = null;
-		this.videos = null;
+		this.locality = new String("null");
+		this.categories = new String("null");
+		this.mainImage = new String("null");
+		this.images = new ArrayList();
+		this.videos = new ArrayList();
 		this.url = "";
 	}
 
+	
 	public String toString() {
-		return id + name + text + address + city + latitude + longitude + sourceUrl + followerCount + followersCount + panorama + eventCount + state + locality + categories.toString() + mainImage + images.toString() + videos.toString() + url;
-	}
+		return "id: " + id + "\n name: " + name + "\n text: " + text + "\n address: " + address + "\n city: " + city + "\n latitude: " + latitude + "\n longitude: " + longitude + "\n sourceUrl: " + sourceUrl + "\n followerCount: " + followerCount + "\n followersCount: " + followersCount + "\n panorama: " + panorama + "\n eventCount: " + eventCount + "\n state: " + state + "\n locality: " + locality.toString() + "\n categories: " + categories.toString() + "\n mainImage: " + mainImage.toString() + "\n images: " + images.toString() + "\n videos: " + videos.toString() + "\n url: " + url + "\n";
+	} 
 	
 }

@@ -1,5 +1,5 @@
-
 public class Schedule {
+	
 	private int id;
 	private String announced;
 	private boolean cancelled;
@@ -16,58 +16,53 @@ public class Schedule {
 	private String pricing;
 	private double relativeFollowers;
 	private double relativeFollowersInWeek;
-	private int[] sourceURLs;
+	private Object sourceURLs;
 	private String start;
 	private String startIS;
 	private String state;
-	private int[] tags;
+	private Object tags;
 	private String timezone;
 	private String venueID;
-	private int[] performerIDs;
+	private Object performerIDs;
 	private Object venueLocality;
 	private String isLongTerm;
 	private String uploadedOnIS;
 	private String url;
-	private int[] followersImages;
-	
-	public String getvenueID() {
-		return venueID;
-	}
-	
-	public Schedule(String id, String an, boolean ca, String cu, String en, int ev, int foDe, int fos, int fo, boolean hoDe, boolean ho, boolean hod, boolean pe, String pr, double re, double reWk, int[] so, String st, String stIS, String sta, int[] ta, String ti, String ve, int[] per, String venL, String isL, String up, String u, int[] foI) {
-		id = id;
-		announced = an; 
-		cancelled = ca;
-		currency = cu;
-		endIS = en;
-		eventID = ev;
-		followerCountDeprecated = foDe;
-		followersCount = fos;
-		followerCount = fo;
-		hourIgnoreDeprecated = hoDe;
-		hourIgnore = ho;
-		hourIgnored = hod;
-		permanent = pe;
-		pricing = pr;
-		relativeFollowers = re;
-		relativeFollowersInWeek = reWk;
-		sourceURLs = so;
-		start = st;
-		startIS = stIS;
-		state = sta;
-		tags = ta;
-		timezone = ti;
-		venueID = ve;
-		performerIDs = per;
-		venueLocality = venL;
-		isLongTerm = isL;
-		uploadedOnIS = up;
-		url = u;
-		followersImages = foI;
+	private Object followersImages;
+
+	public Schedule() {
+		id = 0;
+		announced = "";
+		cancelled = false;
+		currency = "";
+		endIS = "";
+		eventID = 0;
+		followerCountDeprecated = 0;
+		followersCount = 0;
+		followerCount = 0;
+		hourIgnoreDeprecated = false;
+		hourIgnore = false;
+		hourIgnored = false;
+		permanent = false;
+		pricing = "";
+		relativeFollowers = 0.0;
+		relativeFollowersInWeek = 0.0;
+		sourceURLs = new String("");
+		start = "";
+		startIS = "";
+		state = "";
+		tags = new String("");
+		timezone = "";
+		venueID = "";
+		performerIDs = new String("");
+		venueLocality = new String("");
+		isLongTerm = "";
+		uploadedOnIS = "";
+		url = "";
+		followersImages = new String("");
 	}
 	
 	public String toString() {
-		
-		return id + announced + cancelled + currency + endIS + eventID + followerCountDeprecated + followersCount + followerCount + hourIgnoreDeprecated + hourIgnore + hourIgnored + permanent + pricing + relativeFollowers + relativeFollowersInWeek + sourceURLs + start + startIS + state + tags + timezone + venueID + performerIDs + venueLocality + isLongTerm + uploadedOnIS + url + followersImages;
+		return "id: " + id + "\n announced: " + announced + "\n cancelled: " + cancelled + "\n currency: " + currency + "\n endIS: " + endIS + "\n eventID: " + eventID + "\n followerCountDeprecated: " + followerCountDeprecated + "\n followersCount: " + followersCount + "\n followerCount: " + followerCount + "\n hourIgnoreDeprecated: " + hourIgnoreDeprecated + "\n hourIgnore: " + hourIgnore + "\n hourIgnored: " + hourIgnored + "\n permanent: " + permanent + "\n pricing: " + pricing + "\n relativeFollowers: " + relativeFollowers + "\n relativeFollowersInWeek: " + relativeFollowersInWeek + "\n sourceURLs: " + sourceURLs + "\n start: " + start + "\n startIS: " + startIS + "\n state: " + state + "\n tags: " + tags + "\n timezone: " + timezone + "\n venueID: " + venueID + "\n performerIDs: " + performerIDs + "\n venueLocality: " + venueLocality + "\n isLongTerm: " + isLongTerm + "\n uploadedOnIS: " + uploadedOnIS + "\n url: " + url + "\n followersImage: " + followersImages;
 	}
 }
