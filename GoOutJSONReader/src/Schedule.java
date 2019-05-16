@@ -1,34 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Schedule {
 	
-	private int id;
-	private String announced;
-	private boolean cancelled;
-	private String currency;
-	private String endIS;
-	private int eventID;
-	private int followerCountDeprecated;
-	private int followersCount;
-	private int followerCount;
-	private boolean hourIgnoreDeprecated;
-	private boolean hourIgnore;
-	private boolean hourIgnored;
-	private boolean permanent;
-	private String pricing;
-	private double relativeFollowers;
-	private double relativeFollowersInWeek;
-	private Object sourceURLs;
-	private String start;
-	private String startIS;
-	private String state;
-	private Object tags;
-	private String timezone;
-	private String venueID;
-	private Object performerIDs;
-	private Object venueLocality;
-	private String isLongTerm;
-	private String uploadedOnIS;
-	private String url;
-	private Object followersImages;
+	int id;
+	String announced;
+	boolean cancelled;
+	String currency;
+	String endIS;
+	int eventID;
+	int followerCountDeprecated;
+	int followersCount;
+	int followerCount;
+	boolean hourIgnoreDeprecated;
+	boolean hourIgnore;
+	boolean hourIgnored;
+	boolean permanent;
+	String pricing;
+	double relativeFollowers;
+	double relativeFollowersInWeek;
+	List<Object> sourceURLs;
+	String start;
+	String startIS;
+	String state;
+	List<Object> tags;
+	String timezone;
+	int venueID;
+	List<Object> performerIDs;
+	venueLocality vL;
+	String isLongTerm;
+	String uploadedOnIS;
+	String url;
+	List<Object> followersImages;
 
 	public Schedule() {
 		id = 0;
@@ -47,22 +50,22 @@ public class Schedule {
 		pricing = "";
 		relativeFollowers = 0.0;
 		relativeFollowersInWeek = 0.0;
-		sourceURLs = new String("");
+		sourceURLs = new ArrayList<Object>();
 		start = "";
 		startIS = "";
 		state = "";
-		tags = new String("");
+		tags = new ArrayList<Object>();
 		timezone = "";
-		venueID = "";
-		performerIDs = new String("");
-		venueLocality = new String("");
+		venueID = 0;
+		performerIDs = new ArrayList<Object>();
+		vL = new venueLocality();
 		isLongTerm = "";
 		uploadedOnIS = "";
 		url = "";
-		followersImages = new String("");
+		followersImages = new ArrayList<Object>();
 	}
 	
 	public String toString() {
-		return "id: " + id + "\n announced: " + announced + "\n cancelled: " + cancelled + "\n currency: " + currency + "\n endIS: " + endIS + "\n eventID: " + eventID + "\n followerCountDeprecated: " + followerCountDeprecated + "\n followersCount: " + followersCount + "\n followerCount: " + followerCount + "\n hourIgnoreDeprecated: " + hourIgnoreDeprecated + "\n hourIgnore: " + hourIgnore + "\n hourIgnored: " + hourIgnored + "\n permanent: " + permanent + "\n pricing: " + pricing + "\n relativeFollowers: " + relativeFollowers + "\n relativeFollowersInWeek: " + relativeFollowersInWeek + "\n sourceURLs: " + sourceURLs + "\n start: " + start + "\n startIS: " + startIS + "\n state: " + state + "\n tags: " + tags + "\n timezone: " + timezone + "\n venueID: " + venueID + "\n performerIDs: " + performerIDs + "\n venueLocality: " + venueLocality + "\n isLongTerm: " + isLongTerm + "\n uploadedOnIS: " + uploadedOnIS + "\n url: " + url + "\n followersImage: " + followersImages;
+		return "id: " + id + "\n announced: " + announced + "\n cancelled: " + cancelled + "\n currency: " + currency + "\n endIS: " + endIS + "\n eventID: " + eventID + "\n followerCountDeprecated: " + followerCountDeprecated + "\n followersCount: " + followersCount + "\n followerCount: " + followerCount + "\n hourIgnoreDeprecated: " + hourIgnoreDeprecated + "\n hourIgnore: " + hourIgnore + "\n hourIgnored: " + hourIgnored + "\n permanent: " + permanent + "\n pricing: " + pricing + "\n relativeFollowers: " + relativeFollowers + "\n relativeFollowersInWeek: " + relativeFollowersInWeek + "\n sourceURLs: " + sourceURLs + "\n start: " + start + "\n startIS: " + startIS + "\n state: " + state + "\n tags: " + tags + "\n timezone: " + timezone + "\n venueID: " + venueID + "\n performerIDs: " + performerIDs + "\n venueLocality: " + vL.toString() + "\n isLongTerm: " + isLongTerm + "\n uploadedOnIS: " + uploadedOnIS + "\n url: " + url + "\n followersImage: " + followersImages;
 	}
 }
