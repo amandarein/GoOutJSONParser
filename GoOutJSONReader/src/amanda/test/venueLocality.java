@@ -1,4 +1,7 @@
+package amanda.test;
 
+
+// TODO should start with uppercase
 public class venueLocality {
 
 	int id;
@@ -8,6 +11,7 @@ public class venueLocality {
 	country c;
 	
 	public venueLocality() {
+		// define within variable decalration
 		id = 0;
 		name = "";
 		enumm = "";

@@ -1,4 +1,6 @@
+package amanda.test;
 
+// classes should always start by uppercase
 public class country {
 
 	int id;

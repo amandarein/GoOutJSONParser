@@ -1,3 +1,5 @@
+package amanda.test;
+
 import java.util.ArrayList;
 
 public class Venue {

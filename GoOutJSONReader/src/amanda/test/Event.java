@@ -1,3 +1,5 @@
+package amanda.test;
+
 import java.util.ArrayList;
 
 public class Event {
@@ -34,6 +36,7 @@ public class Event {
 	
 	public Event() {
 		super();
+		// TODO all this you can state within variable declaration, it will be much shorter
 		this.id = 0;
 		this.name = "";
 		this.url = "";
